@@ -34,6 +34,7 @@ set_callback(function()
 
     enemy_uids = get_entities_by_type(all_enemies)
 
+    -- reuse locations of all enemies when spawning moles
     for index, enemy_uid in ipairs(enemy_uids) do
         x, y, layer = get_position(enemy_uid)
         for i = 1, options.num_of_moles do create_mole(x, y) end
