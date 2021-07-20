@@ -46,3 +46,24 @@ set_callback(function()
     end
 
 end, ON.LEVEL)
+
+set_callback(function()
+    local mole_uids = get_entities_by_type(ENT_TYPE.MONS_MOLE)
+    for i, uid in ipairs(mole_uids) do
+
+        e = get_entity(uid)
+        e = e:as_movable()
+
+        if (e.health ~= nil and e.health <= 0) then
+            local function delay(m_uid)
+                set_timeout(function()
+                    local ax, ay, al = get_position(m_uid)
+                    local turkey_uid = spawn(ENT_TYPE.ITEM_PICKUP_COOKEDTURKEY,
+                                             ax, ay, al, 0, 0)
+                    kill_entity(m_uid)
+                end, 30)
+            end
+            delay(uid)
+        end
+    end
+end, ON.FRAME)
