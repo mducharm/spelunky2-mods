@@ -27,7 +27,12 @@ all_enemies = {
 }
 
 function create_mole(x, y)
-    spawn_entity(ENT_TYPE.MONS_MOLE, x, y, LAYER.FRONT, 0, 0)
+    local m_uid = spawn_entity(ENT_TYPE.MONS_MOLE, x, y, LAYER.FRONT, 0, 0)
+    m = get_entity(m_uid)
+
+    -- make them poisoned, like a rat plague or something?
+    m = m:as_movable()
+    m:poison(18000)
 end
 
 set_callback(function()
