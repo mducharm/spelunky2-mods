@@ -58,8 +58,11 @@ set_callback(function()
             local function delay(m_uid)
                 set_timeout(function()
                     local ax, ay, al = get_position(m_uid)
-                    local turkey_uid = spawn(ENT_TYPE.ITEM_PICKUP_COOKEDTURKEY,
-                                             ax, ay, al, 0, 0)
+                    local spawn_turkey = math.random(10) <= 4
+                    if (spawn_turkey) then
+                        local turkey_uid = spawn(ENT_TYPE.ITEM_PICKUP_COOKEDTURKEY,
+                                                 ax, ay, al, 0, 0)
+                    end
                     kill_entity(m_uid)
                 end, 30)
             end
