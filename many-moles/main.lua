@@ -1,6 +1,6 @@
 meta.name = "Many Moles"
 meta.description = "Lots of moles, always, all levels."
-meta.version = "WIP"
+meta.version = "0.0.3"
 meta.author = "barrel_aged_sql"
 
 register_option_int("num_of_moles", "Number of moles spawned per enemy.", 5, 1,
